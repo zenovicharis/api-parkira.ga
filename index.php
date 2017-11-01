@@ -6,18 +6,13 @@ error_reporting(E_ALL);
 require 'vendor/autoload.php';
 
 use Parkiraga\Application;
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Parkiraga\Controllers\UserController;
 
 $app = new  Parkiraga\Application($_SERVER['HOME']);
 
+$userController = new Parkiraga\Controllers\UserController();
 
-
-$app->get('/hello/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name');
-    $response->getBody()->write("Hello, $name");
-
-    return $response;
-});
+$app->post('/user/create', UserController::class.':create');
+$app->post('/user/fuck', UserController::class.':you');
 
 $app->run();

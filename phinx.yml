@@ -1,0 +1,25 @@
+paths:
+    migrations: %%PHINX_CONFIG_DIR%%/db/migrations
+    seeds: %%PHINX_CONFIG_DIR%%/db/seed
+environments:
+    default_migration_table: migrations
+    default_database: development
+    production:
+        adapter: mysql
+        host: localhost
+        name: parkiragaProd
+        user: root
+        pass: 'root'
+        port: 3306
+        charset: utf8
+
+    development:
+        adapter: mysql
+        host: localhost
+        name: parkiraga
+        user: root
+        pass: 'root'
+        port: 3306
+        charset: utf8
+
+version_order: creation
