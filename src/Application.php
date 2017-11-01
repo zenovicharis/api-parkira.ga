@@ -15,6 +15,7 @@ class Application extends \Slim\App{
         $file = file_get_contents($path."/config.json");
         //Setting configuration as a local variable
         $this->cfg = json_decode($file);
+        var_dump("Hello");die();
     }
 
     protected function configureDatabase(){
