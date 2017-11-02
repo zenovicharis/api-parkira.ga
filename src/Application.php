@@ -16,6 +16,7 @@ class Application extends \Slim\App{
         $this->configureControllers();
         $this->extract($basePath);
         $this->configureDatabase();
+        aasdasd
         
     }
 
