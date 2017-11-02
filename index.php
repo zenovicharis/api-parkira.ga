@@ -13,6 +13,5 @@ $app = new  Parkiraga\Application($_SERVER['HOME']);
 $userController = new Parkiraga\Controllers\UserController();
 
 $app->post('/user/create', UserController::class.':create');
-$app->post('/user/fuck', UserController::class.':you');
 
 $app->run();
