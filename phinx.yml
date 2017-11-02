@@ -1,6 +1,7 @@
 paths:
     migrations: %%PHINX_CONFIG_DIR%%/db/migrations
-    seeds: %%PHINX_CONFIG_DIR%%/db/seed
+    seeds: %%PHINX_CONFIG_DIR%%/db/seeds
+
 environments:
     default_migration_table: migrations
     default_database: development
@@ -9,7 +10,7 @@ environments:
         host: localhost
         name: parkiragaProd
         user: root
-        pass: 'root'
+        pass: ''
         port: 3306
         charset: utf8
 
@@ -18,8 +19,9 @@ environments:
         host: localhost
         name: parkiraga
         user: root
-        pass: 'root'
+        pass: ''
         port: 3306
         charset: utf8
+
 
 version_order: creation

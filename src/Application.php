@@ -5,7 +5,8 @@ namespace Parkiraga;
 class Application extends \Slim\App{
     public $cfg;
     public function __construct($basePath){
-        parent::__construct();
+        $container = new \Slim\Container;
+        parent::__construct($container);
         $this->extract($basePath);
         $this->configureDatabase();
     }
