@@ -23,7 +23,5 @@ class UserService
         } catch (Exception $e){
             return false;
         }
-
-
     }
 }

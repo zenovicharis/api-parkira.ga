@@ -14,7 +14,6 @@ class Application extends \Slim\App{
         $this->configureServices();
 
         $this->configureControllers();
-
         $this->extract($basePath);
         $this->configureDatabase();
         
