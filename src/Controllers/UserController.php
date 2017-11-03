@@ -24,4 +24,9 @@ class UserController
         return $response->withJson($users, 200);
     }
 
+    public function getUser(Request $request, Response $response, $id){
+        $user = $this->userService->getUserById($id);
+        return $response->withJson($user, 200);
+    }
+
 }

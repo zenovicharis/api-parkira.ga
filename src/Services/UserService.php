@@ -31,6 +31,14 @@ class UserService
              return false;
          }
     }
+    public function getUserById($id){
+        try{
+            $user = User::find($id);
+            return $user->to_array();
+        }catch(Exception $e){
+            return $e;
+        }
+    }
     protected function toUserArray($users){
         $array = array();
         foreach($users as $user){
@@ -38,5 +46,6 @@ class UserService
         }
         return $array;
     }
+
 
 }

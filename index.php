@@ -11,4 +11,6 @@ $app->post('/user/create', \UserController::class.':create');
 
 $app->get('/users', \UserController::class.':getAll');
 
+$app->get('/user/{id}', \UserController::class.':getUser');
+
 $app->run();
