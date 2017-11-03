@@ -44,3 +44,14 @@ php vendor/bin/phinx init
 cd vendor/bin
 phinx.bat init
 php phinx.bat init
+git checkout master
+git stash
+git pop
+git stash pop
+git add .
+git commit -m "added"
+git pull origin feature/user
+git pull origin master
+git checkout master
+composer update
+composer dump-autoload -o

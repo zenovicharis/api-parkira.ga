@@ -2,26 +2,32 @@
 
 namespace Parkiraga\Services;
 
-use \Parkiraga\Application;
-use \Parkiraga\Models\User;
+use Parkiraga\Models\User;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class UserService
 {
-
-    public function __construct()
-    {
-
+    public function __construct() { }
+    public function createUser($name, $surname){
+        try{
+            $user = User::create([
+                "first_name" => $name,
+                "last_name" => $surname,
+                "email" => 'zenovicharis@live.com',
+                "link" => "me.org",
+                "picture" => "no picture"
+            ]);
+            return true;
+        } catch (Exception $e){
+            return false;
+        }
     }
-
-    public function createUser($name){
-        $user = User::create([
-            'first_name' => $name,
-            'last_name' => 'Imamovic',
-            'email' => 'imamovicdze@gmail.com',
-            'link' => 'dz',
-            'link' => 'dz',
-            'picture' => 'dz',
-        ]);
+    public function getUsers(){
+         try{
+            $users = User::all();
+            return true;
+         }catch(Exception $e){
+            return false;
+         }
     }
-
 }

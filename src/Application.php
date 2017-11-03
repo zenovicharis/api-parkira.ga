@@ -2,13 +2,20 @@
 
 namespace Parkiraga;
 
+use Parkiraga\Controllers\UserController;
+use \Parkiraga\Services\UserService;
+
 class Application extends \Slim\App{
     public $cfg;
+    public $container;
     public function __construct($basePath){
-        $container = new \Slim\Container;
-        parent::__construct($container);
+        $c = new \Slim\Container;
+        parent::__construct($c);
+        $this->configureServices();
+        $this->configureControllers();
         $this->extract($basePath);
         $this->configureDatabase();
+        
     }
 
     protected function extract($path){
@@ -29,6 +36,20 @@ class Application extends \Slim\App{
             ]);
             $cfg->set_default_connection('main');
         });
+    }
 
+    protected function configureServices(){
+        $c = $this->getContainer();
+        $c['userService'] = function ($c){
+            return new UserService();
+        };
+    }
+
+    protected function configureControllers(){
+        $c = $this->getContainer();
+        $c['UserController'] = function ($c){
+            $userService = $c->get('userService');
+            return new UserController($userService);
+        };
     }
 }
