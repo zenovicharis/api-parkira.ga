@@ -8,6 +8,7 @@ require 'vendor/autoload.php';
 $app = new  Parkiraga\Application($_SERVER['HOME']);
 
 $app->post('/user/create', \UserController::class.':create');
-$app->get('/user/getAll', \UserController::class.':getAll');
+
+$app->get('/users', \UserController::class.':getAll');
 
 $app->run();

@@ -25,9 +25,18 @@ class UserService
     public function getUsers(){
          try{
             $users = User::all();
-            return true;
-         }catch(Exception $e){
-            return false;
+            $usersInArray = $this->toUserArray($users);
+            return $usersInArray;
+         }catch(Exception $e) {
+             return false;
          }
     }
+    protected function toUserArray($users){
+        $array = array();
+        foreach($users as $user){
+            $array[] = $user->to_array();
+        }
+        return $array;
+    }
+
 }
