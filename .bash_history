@@ -55,3 +55,18 @@ git pull origin master
 git checkout master
 composer update
 composer dump-autoload -o
+git status
+git add .
+git commit -m "created seeder and user get response"
+git push origin master
+git status
+cd .idea/workspace.xml
+git status
+git add .
+git commit -m "add method to find user by id"
+git push origin master
+git commit -m "done 4 tasks (6)"
+git status
+git add .
+git commit -m "done 4 tasks (6)"
+git push origin master

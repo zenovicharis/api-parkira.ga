@@ -7,6 +7,15 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 class CompanyService
 {
     public function __construct() { }
+    public function updateCompany($id,$name){
+        try{
+            $company = Company::find($id);
+            $company->update_attributes(array('name' => $name));
+            return true;
+        } catch (Exception $e){
+            return false;
+        }
+    }
     public function getCompaniesAll(){
         try{
             $companies = Company::all();

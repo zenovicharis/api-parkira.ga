@@ -13,6 +13,11 @@ class CompanyController
     {
         $this->companyService = $companyService;
     }
+    public function update(Request $request, Response $response, $id){
+        $name = $request->getParam("name");
+        $succesfull = $this->companyService->updateCompany($id,$name);
+        return $succesfull ? $response->withStatus(201) : $response->withStatus(500);
+    }
 
     public function getCompanies(Request $request, Response $response){
         $companies = $this->companyService->getCompaniesAll();

@@ -3,8 +3,8 @@
 namespace Parkiraga;
 
 use Parkiraga\Controllers\UserController;
-use \Parkiraga\Services\UserService;
 use Parkiraga\Controllers\CompanyController;
+use \Parkiraga\Services\UserService;
 use \Parkiraga\Services\CompanyService;
 
 class Application extends \Slim\App{

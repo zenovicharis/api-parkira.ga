@@ -11,8 +11,10 @@ $app->post('/user/create', \UserController::class.':create');
 $app->get('/users', \UserController::class.':getAll');
 $app->get('/user/{id}', \UserController::class.':getUser');
 
+$app->post('/company/update/{id}', \CompanyController::class.':update');
 $app->get('/companies', \CompanyController::class.':getCompanies');
 $app->get('/company/{id}', \CompanyController::class.':getCompany');
+
 
 
 $app->run();
