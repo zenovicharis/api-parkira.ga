@@ -4,6 +4,8 @@ namespace Parkiraga;
 
 use Parkiraga\Controllers\UserController;
 use \Parkiraga\Services\UserService;
+use Parkiraga\Controllers\CompanyController;
+use \Parkiraga\Services\CompanyService;
 
 class Application extends \Slim\App{
     public $cfg;
@@ -43,6 +45,9 @@ class Application extends \Slim\App{
         $c['userService'] = function ($c){
             return new UserService();
         };
+        $c['CompanyService'] = function ($c){
+            return new CompanyService();
+        };
     }
 
     protected function configureControllers(){
@@ -50,6 +55,10 @@ class Application extends \Slim\App{
         $c['UserController'] = function ($c){
             $userService = $c->get('userService');
             return new UserController($userService);
+        };
+        $c['CompanyController'] = function ($c){
+            $companyService = $c->get('CompanyService');
+            return new CompanyController($companyService);
         };
     }
 }
