@@ -77,3 +77,17 @@ git origin push master
 git origin push master
 push git origin master
 git push origin master
+vendor/bin/phinx create migration CompanyUserFK
+vendor/bin/phinx create CompanyUserFK
+vendor/bin/phinx create CompanyUserFk
+vendor/bin/phinx migrate
+vendor/bin/phinx rollback -t 0
+vendor/bin/phinx migrate
+vendor/bin/phinx seed:run
+vendor/bin/phinx seed:run -s UserSeeder
+vendor/bin/phinx seed:run -s CompanySeeder
+git status
+git add .
+git commit -m "created FK CEO"
+git push origin master
+git push origin master
