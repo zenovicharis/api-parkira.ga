@@ -45,7 +45,7 @@ class Application extends \Slim\App{
         $c['userService'] = function ($c){
             return new UserService();
         };
-        $c['CompanyService'] = function ($c){
+        $c['companyService'] = function ($c){
             return new CompanyService();
         };
     }
@@ -57,7 +57,7 @@ class Application extends \Slim\App{
             return new UserController($userService);
         };
         $c['CompanyController'] = function ($c){
-            $companyService = $c->get('CompanyService');
+            $companyService = $c->get('companyService');
             return new CompanyController($companyService);
         };
     }

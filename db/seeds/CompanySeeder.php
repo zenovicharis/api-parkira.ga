@@ -21,28 +21,28 @@ class CompanySeeder extends AbstractSeed
                 "address" => 'meal@meal.com',
                 "businessType" => '/',
                 "country" => "Srb",
-                "CEO" => "no picture"
+                "CEO" => 1
             ],
             [
                 "name" => "Jeans",
                 "address" => 'jeans@jeans.com',
                 "businessType" => '/',
                 "country" => "Mkd",
-                "CEO" => "no picture"
+                "CEO" => 2
             ],
             [
                 "name" => "Hat",
                 "address" => 'hat@hat.com',
                 "businessType" => '/',
                 "country" => "USA",
-                "CEO" => "no picture"
+                "CEO" => 3
             ],
             [
                 "name" => "Shirt",
                 "address" => 'shirt@shirt.com',
                 "businessType" => '/',
                 "country" => "BiH",
-                "CEO" => "no picture"
+                "CEO" => 4
             ]
         ];
 

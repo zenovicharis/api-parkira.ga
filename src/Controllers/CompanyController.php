@@ -1,5 +1,5 @@
 <?php
-
+// never put logic here :( 
 namespace Parkiraga\Controllers;
 
 use Parkiraga\Services\CompanyService;

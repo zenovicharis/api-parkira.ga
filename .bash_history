@@ -70,3 +70,10 @@ git status
 git add .
 git commit -m "done 4 tasks (6)"
 git push origin master
+git status
+git add .
+git commit -m "created method getcompanybyID"
+git origin push master
+git origin push master
+push git origin master
+git push origin master

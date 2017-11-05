@@ -28,12 +28,14 @@ class CompanyService
 
     public function getCompanyById($id){
         try{
-            $company = Company::find($id);
-            return $company->to_array();
+            $company = Company::find($id,['include' => ['users']]);
+            return $company->serialize();
         }catch(Exception $e){
             return $e;
         }
     }
+
+    // protected function /
 
     protected function toCompanyArray($companies){
         $array = array();
