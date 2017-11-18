@@ -9,14 +9,15 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 class UserService
 {
     public function __construct() { }
-    public function createUser($name, $surname){
+    public function createUser($name, $surname, $email, $password, $link, $picture){
         try{
             $user = User::create([
                 "first_name" => $name,
                 "last_name" => $surname,
-                "email" => 'zenovicharis@live.com',
-                "link" => "me.org",
-                "picture" => "no picture"
+                "email" => $email,
+                "password" => password_hash($password, PASSWORD_DEFAULT),
+                "link" => $link,
+                "picture" => $picture
             ]);
             return true;
         } catch (Exception $e){

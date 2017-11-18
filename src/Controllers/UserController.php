@@ -16,7 +16,11 @@ class UserController
     public function create(Request $request, Response $response){
         $name = $request->getParam("name");
         $surname = $request->getParam("surname");
-        $succesfull = $this->userService->createUser($name, $surname);
+        $email = $request->getParam("email");
+        $password = $request->getParam("password");
+        $link = $request->getParam("link");
+        $picture = $request->getParam("picutre");
+        $succesfull = $this->userService->createUser($name, $surname, $email, $password, $link, $picture);
         return $succesfull ? $response->withStatus(201) : $response->withStatus(500);
     }
     public function getAll(Request $request, Response $response){
