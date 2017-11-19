@@ -4,4 +4,4 @@ composer.lock
 phinx.yml
 .bash_history
 .viminfo
-.idea
+/.idea
