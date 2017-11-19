@@ -17,6 +17,7 @@ class Application extends \Slim\App{
         $this->configureControllers();
         $this->extract($basePath);
         $this->configureDatabase();
+        $this->configureAuthorization();
         
     }
 
@@ -59,6 +60,14 @@ class Application extends \Slim\App{
         $c['CompanyController'] = function ($c){
             $companyService = $c->get('companyService');
             return new CompanyController($companyService);
+        };
+    }
+
+    protected function configureAuthorization(){
+        $c = $this->getContainer();
+        $c['Authorization'] = function ($c){
+            $userService = $c->get('userService');
+            return new Authorization($userService);
         };
     }
 }

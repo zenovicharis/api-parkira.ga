@@ -3,3 +3,5 @@ composer.lock
 .gitconfig
 phinx.yml
 .bash_history
+.viminfo
+.idea

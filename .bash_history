@@ -152,3 +152,7 @@ vendor/bin/phinx migrate -e development
 git status
 git commit add .
 git commit -a
+git status
+git add .
+git commit -m "create password col"
+git push origin master
