@@ -20,34 +20,39 @@ class UserSeeder extends AbstractSeed
                 "first_name" => "Haris",
                 "last_name" => 'Zenovic',
                 "email" => 'zenovicharis@live.com',
+                "password" => password_hash("asd", PASSWORD_DEFAULT),
                 "link" => "me.org",
                 "picture" => "no picture"
             ],
             [
                 "first_name" => "Miomir",
                 "last_name" => 'Plojovic',
-                "email" => 'zenovicharis@live.com',
+                "password" => password_hash("asd", PASSWORD_DEFAULT),
+                "email" => 'plojovicmiomir@live.com',
                 "link" => "me.org",
                 "picture" => "no picture"
             ],
             [
                 "first_name" => "Rasim",
                 "last_name" => 'Ljajic',
-                "email" => 'zenovicharis@live.com',
+                "password" => password_hash("asd", PASSWORD_DEFAULT),
+                "email" => 'ljajicrasim@live.com',
                 "link" => "me.org",
                 "picture" => "no picture"
             ],
             [
                 "first_name" => "Predrag",
                 "last_name" => 'Zenovic',
-                "email" => 'zenovicharis@live.com',
+                "password" => password_hash("asd", PASSWORD_DEFAULT),
+                "email" => 'zenovicpredrag@live.com',
                 "link" => "me.org",
                 "picture" => "no picture"
             ],
             [
                 "first_name" => "Sulejman",
                 "last_name" => 'Karisik',
-                "email" => 'zenovicharis@live.com',
+                "password" => password_hash("asd", PASSWORD_DEFAULT),
+                "email" => 'karisiksulejman@live.com',
                 "link" => "me.org",
                 "picture" => "no picture"
             ]

@@ -31,6 +31,7 @@ class UserMigration extends AbstractMigration
         $table = $this->table('users');
         $table->addColumn('first_name', 'text')
             ->addColumn('last_name', 'text')
+            ->addColumn('password', 'string')
             ->addColumn('email', 'text')
             ->addColumn('link', 'text', ['null' => true])
             ->addColumn('picture', 'text', ['null' => true])
