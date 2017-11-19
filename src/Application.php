@@ -2,13 +2,23 @@
 
 namespace Parkiraga;
 
+use Parkiraga\Controllers\UserController;
+use Parkiraga\Controllers\CompanyController;
+use \Parkiraga\Services\UserService;
+use \Parkiraga\Services\CompanyService;
+
 class Application extends \Slim\App{
     public $cfg;
+    public $container;
     public function __construct($basePath){
-        $container = new \Slim\Container;
-        parent::__construct($container);
+        $c = new \Slim\Container;
+        parent::__construct($c);
+        $this->configureServices();
+        $this->configureControllers();
         $this->extract($basePath);
         $this->configureDatabase();
+        $this->configureAuthorization();
+        
     }
 
     protected function extract($path){
@@ -29,6 +39,35 @@ class Application extends \Slim\App{
             ]);
             $cfg->set_default_connection('main');
         });
+    }
 
+    protected function configureServices(){
+        $c = $this->getContainer();
+        $c['userService'] = function ($c){
+            return new UserService();
+        };
+        $c['companyService'] = function ($c){
+            return new CompanyService();
+        };
+    }
+
+    protected function configureControllers(){
+        $c = $this->getContainer();
+        $c['UserController'] = function ($c){
+            $userService = $c->get('userService');
+            return new UserController($userService);
+        };
+        $c['CompanyController'] = function ($c){
+            $companyService = $c->get('companyService');
+            return new CompanyController($companyService);
+        };
+    }
+
+    protected function configureAuthorization(){
+        $c = $this->getContainer();
+        $c['Authorization'] = function ($c){
+            $userService = $c->get('userService');
+            return new Authorization($userService);
+        };
     }
 }
