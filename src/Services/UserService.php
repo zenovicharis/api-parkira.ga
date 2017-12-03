@@ -10,6 +10,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 class UserService
 {
     public function __construct() { }
+
     public function createUser(UserEntityModel $user){
         try{
             $user = User::create([

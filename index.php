@@ -7,6 +7,8 @@ require 'vendor/autoload.php';
 
 $app = new  Parkiraga\Application($_SERVER['HOME']);
 $c = $app->getContainer();
+
+// User Controller Routes
 $app->post('/user/create', \UserController::class.':create');
 $app->get('/users', \UserController::class.':getAll');
 $app->get('/user/{id}', \UserController::class.':getUser');
@@ -16,6 +18,8 @@ $app->post('/login', \UserController::class.':userLogin')
         return $response;
     });
 
+// Company Controller Routes
+$app->post('/company/create', \CompanyController::class.':create');
 $app->post('/company/update/{id}', \CompanyController::class.':update');
 $app->get('/companies', \CompanyController::class.':getCompanies')
     ->add(function ($request, $response, $next) use ($c) {

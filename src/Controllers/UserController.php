@@ -45,6 +45,7 @@ class UserController
         $password = $request->getParam("password");
         $link = $request->getParam("link");
         $picture = $request->getParam("picutre");
+        // TODO: Implement validation for User
         $user = new UserEntityModel($name, $surname, $email, $password, $link, $picture);
         return $user;
     }
