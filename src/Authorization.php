@@ -21,7 +21,7 @@ class Authorization
         $this->userService = $userService;
     }
 
-    public function authorizeUser(Response $response, Request $request, $next){
+    public function authorizeUser(Request $request, Response $response, $next){
         $email = $request->getParam('email');
         $password = $request->getParam('password');
         $user = $this->userService->getUserByEmail($email);
@@ -45,7 +45,7 @@ class Authorization
         $next($request, $response);
     }
 
-    public function isLoggedIn(Response $response, Request $request, $next){
+    public function isLoggedIn(Request $request, Response $response, $next){
         if(isset($_SESSION['user'])){
             return $next($request, $response);
         }else{

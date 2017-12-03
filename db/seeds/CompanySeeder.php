@@ -17,32 +17,49 @@ class CompanySeeder extends AbstractSeed
     {
         $data = [
             [
+                "name" => "Parking kod Vrbaka",
+                "address" => 'vrbaka@vrbaka.com',
+                "capacity" => 350,
+                "places_taken" => 0,
+                "cost_per_hour" => 3.5,
+                "user_id" => 1,
+                "country" => "Srb"
+            ],
+            [
+                "name" => "Parking iz lucne",
+                "address" => 'meal@meal.com',
+                "capacity" => 350,
+                "places_taken" => 0,
+                "cost_per_hour" => 3.5,
+                "user_id" => 2,
+                "country" => "Srb"
+            ],
+            [
+                "name" => "Parking kod Dzena",
+                "address" => 'meal@meal.com',
+                "capacity" => 350,
+                "places_taken" => 0,
+                "cost_per_hour" => 3.5,
+                "user_id" => 3,
+                "country" => "Srb"
+            ],
+            [
+                "name" => "Drzavni Parking",
+                "address" => 'meal@meal.com',
+                "capacity" => 350,
+                "places_taken" => 0,
+                "cost_per_hour" => 3.5,
+                "user_id" => 4,
+                "country" => "Srb"
+            ],
+            [
                 "name" => "Meal",
                 "address" => 'meal@meal.com',
-                "businessType" => '/',
-                "country" => "Srb",
-                "CEO" => 1
-            ],
-            [
-                "name" => "Jeans",
-                "address" => 'jeans@jeans.com',
-                "businessType" => '/',
-                "country" => "Mkd",
-                "CEO" => 2
-            ],
-            [
-                "name" => "Hat",
-                "address" => 'hat@hat.com',
-                "businessType" => '/',
-                "country" => "USA",
-                "CEO" => 3
-            ],
-            [
-                "name" => "Shirt",
-                "address" => 'shirt@shirt.com',
-                "businessType" => '/',
-                "country" => "BiH",
-                "CEO" => 4
+                "capacity" => 350,
+                "places_taken" => 0,
+                "cost_per_hour" => 3.5,
+                "user_id" => 5,
+                "country" => "Srb"
             ]
         ];
 
