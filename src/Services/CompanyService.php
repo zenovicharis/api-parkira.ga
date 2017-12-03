@@ -26,10 +26,18 @@ class CompanyService
             return false;
         }
     }
-    public function updateCompany($id,$name){
+    public function updateCompany(CompanyEntityModel $company, $id){
         try{
             $company = Company::find($id);
-            $company->update_attributes(array('name' => $name));
+            $company->update_attributes([
+                "name" => $company->name,
+                "address" => $company->address,
+                "capacity" => (int) $company->capacity,
+                "places_taken" => (int)$company->places_taken,
+                "cost_per_hour" =>(int) $company->cost_per_hour,
+                "user_id" => (int)$company->user_id,
+                "country" => "Srb",
+            ]);
             return true;
         } catch (Exception $e){
             return false;
@@ -54,7 +62,7 @@ class CompanyService
         }
     }
 
-    // protected function /
+    // protected function //
 
     protected function toCompanyArray($companies){
         $array = array();

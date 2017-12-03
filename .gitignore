@@ -5,3 +5,4 @@ phinx.yml
 .bash_history
 .viminfo
 /.idea
+.idea/workspace.xml
