@@ -156,3 +156,34 @@ git status
 git add .
 git commit -m "create password col"
 git push origin master
+npm install --global surge
+install --global surge
+surge
+composer install surge
+surge
+install surge
+install -g surge
+composer install -g surge
+composer install surge
+npm install --global surge
+surge
+ls
+ls
+surge
+surge
+surge
+surge
+surge
+surge
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
+surge --domain blockssoftware.surge.sh
