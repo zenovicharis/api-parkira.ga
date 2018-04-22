@@ -14,9 +14,21 @@ class CompanyController
     {
         $this->companyService = $companyService;
     }
+
+    public function create(Request $request, Response $response){
+        $company = $this->extractCompany($request);
+        $succesfull = $this->companyService->createCompany($company);
+        return is_int($succesfull) ? $response->withStatus(201)->withBody($this->setBodyId($response, $succesfull)) : $response->withStatus(500);
+    }
+
     public function update(Request $request, Response $response, $id){
         $company = $this->extractCompany($request);
-        $succesfull = $this->companyService->updateCompany($company);
+        $succesfull = $this->companyService->updateCompany($company,$id);
+        return $succesfull ? $response->withStatus(201) : $response->withStatus(500);
+    }
+
+    public function delete(Request $request, Response $response, $id){
+        $succesfull = $this->companyService->deleteCompany($id);
         return $succesfull ? $response->withStatus(201) : $response->withStatus(500);
     }
 
@@ -28,12 +40,6 @@ class CompanyController
     public function getCompany(Request $request, Response $response, $id){
         $company = $this->companyService->getCompanyById($id);
         return $response->withJson($company, 200);
-    }
-
-    public function create(Request $request, Response $response){
-        $company = $this->extractCompany($request);
-        $succesfull = $this->companyService->createCompany($company);
-        return is_int($succesfull) ? $response->withStatus(201)->withBody($this->setBodyId($response, $succesfull)) : $response->withStatus(500);
     }
 
     private function extractCompany(Request $request){

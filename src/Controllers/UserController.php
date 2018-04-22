@@ -20,6 +20,13 @@ class UserController
         $succesfull = $this->userService->createUser($user);
         return is_int($succesfull) ? $response->withStatus(201)->withBody($this->setBodyId($response, $succesfull)) : $response->withStatus(500);
     }
+
+    public function update(Request $request, Response $response, $id){
+        $user = $this->extractUser($request);
+        $succesfull = $this->userService->updateUser($user, $id);
+        return $succesfull ? $response->withStatus(201) : $response->withStatus(500);
+    }
+
     public function getAll(Request $request, Response $response){
         $users = $this->userService->getUsers();
         return $response->withJson($users, 200);
@@ -31,7 +38,7 @@ class UserController
     }
 
     public function userLogin(Request $request, Response $response){
-        var_dump(unserialize($_SESSION['user']));die();
+        return $response->withJson(200);
     }
 
     public function userLogout(Request $request, Response $response){
@@ -39,12 +46,12 @@ class UserController
     }
 
     private function extractUser(Request $request){
-        $name = $request->getParam("name");
-        $surname = $request->getParam("surname");
+        $name = $request->getParam("first_name");
+        $surname = $request->getParam("last_name");
         $email = $request->getParam("email");
         $password = $request->getParam("password");
         $link = $request->getParam("link");
-        $picture = $request->getParam("picutre");
+        $picture = $request->getParam("picture");
         // TODO: Implement validation for User
         $user = new UserEntityModel($name, $surname, $email, $password, $link, $picture);
         return $user;

@@ -27,6 +27,24 @@ class UserService
             return false;
         }
     }
+
+    public function updateUser(UserEntityModel $entityModel, $id){
+        try{
+            $user = User::find($id);
+            $user->update_attributes([
+                "first_name" => $entityModel->name,
+                "last_name" => $entityModel->surname,
+                "email" => $entityModel->email,
+                "password" => password_hash($entityModel->password, PASSWORD_DEFAULT),
+                "link" => $entityModel->link,
+                "picture" => $entityModel->picture
+            ]);
+            return true;
+        } catch (Exception $e){
+            return false;
+        }
+    }
+
     public function getUsers(){
          try{
             $users = User::all();
@@ -36,6 +54,7 @@ class UserService
              return false;
          }
     }
+
     public function getUserById($id){
         try{
             $user = User::find($id);
@@ -44,6 +63,7 @@ class UserService
             return $e;
         }
     }
+
     public function getUserByEmail($email){
         try{
             $user = User::find_by_email($email);
@@ -52,6 +72,7 @@ class UserService
             return $e;
         }
     }
+
     protected function toUserArray($users){
         $array = array();
         foreach($users as $user){
