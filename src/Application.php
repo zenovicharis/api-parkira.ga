@@ -70,4 +70,18 @@ class Application extends \Slim\App{
             return new Authorization($userService);
         };
     }
+
+    protected function configureServices(){
+        $c = $this->getContainer();
+        $c['userService'] = function ($c){
+            return new UserService();
+        };
+    }
+    protected function configureControllers(){
+        $c = $this->getContainer();
+        $c['UserController'] = function ($c){
+            $userService = $c->get('userService');
+            return new UserController($userService);
+        };
+    }
 }

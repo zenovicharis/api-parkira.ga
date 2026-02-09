@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require 'vendor/autoload.php';
 
+
 $app = new  Parkiraga\Application($_SERVER['HOME']);
 $c = $app->getContainer();
 
@@ -35,6 +36,8 @@ $app->get('/companies', \CompanyController::class.':getCompanies')
 $app->get('/company/{id}', \CompanyController::class.':getCompany');
 
 
+
+$app->post('/user/create', \UserController::class.':create');
 
 
 $app->run();
