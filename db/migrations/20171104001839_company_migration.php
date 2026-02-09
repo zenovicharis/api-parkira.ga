@@ -3,7 +3,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class UserAddNewColumn extends AbstractMigration
+class CompanyMigration extends AbstractMigration
 {
     /**
      * Change Method.
@@ -28,8 +28,12 @@ class UserAddNewColumn extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('users');
-        $table->addColumn('text_field', 'text', ['null' => true])
-            ->update();
+        $table = $this->table('companies');
+        $table->addColumn('name', 'text')
+            ->addColumn('address', 'text')
+            ->addColumn('businessType', 'text')
+            ->addColumn('country', 'text')
+            ->addColumn('CEO', 'text')
+            ->create();
     }
 }
